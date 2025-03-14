@@ -582,6 +582,18 @@ func (m *Message) String() string {
 	return string(m.build())
 }
 
+func (m *Message) String() string {
+	if m.rawMessage != nil {
+		return m.rawMessage.String()
+	}
+
+	return string(m.build())
+}
+
+func (m *Message) Build() []byte {
+	return m.build()
+}
+
 func formatCheckSum(value int) string {
 	return fmt.Sprintf("%03d", value)
 }
